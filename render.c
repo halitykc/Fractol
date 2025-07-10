@@ -1,0 +1,61 @@
+#include "ft_fractol.h"
+
+void	data_init(t_fractol *fractl)
+{
+	fractl->f_iterations = MAX_ITERATION;
+	fractl->hypothenus = 4;
+}
+
+void	ft_put_pixel(int x, int y, t_img *frct, int color)
+{
+	int offset;
+
+	offset = (y * frct->size_line) + (x * (frct->bitperpixel/ 8));
+	*(unsigned int  *) (offset + frct->pixel_ptr) = color;
+}
+
+
+void	render_calculations(int x, int y, t_fractol *fractol)
+{
+	t_coordinate z;
+	t_coordinate c;
+	int i;
+	int color;
+
+	i = -1;
+	data_init(fractol);
+	z.real = 0.0;
+	z.imaginary = 0.0;
+	c.real = ft_scale(x,SCALE_MIN,SCALE_MAX,WIDTH);
+	c.imaginary = ft_scale(y,SCALE_MAX,SCALE_MIN,HEIGHT);
+	while (++i < fractol->f_iterations)
+	{ 
+		z = sumcomplex(sqr_number(z), c);
+		if ((z.real * z.real) + (z.imaginary *z.imaginary) > fractol->hypothenus)
+		{
+			color  = ft_scale(i,0x000000,0xffffff,fractol->f_iterations);
+			ft_put_pixel(x, y, &fractol->img,color);
+			return ;
+		}	
+	}
+	ft_put_pixel(x,y,&fractol->img,0x000001);
+}
+
+void	fractal_render(t_fractol *frctl)
+{
+	int	x;
+	int	y;
+
+	y = 0;
+	while (y < HEIGHT)
+	{
+		x = 0;
+		while (x < WIDTH)
+		{
+			render_calculations(x,y, frctl);
+			x++;
+		}
+		y++;
+	}
+	mlx_put_image_to_window(frctl->f_connection,frctl->f_window,frctl->img.img_ptr,0,0);
+}

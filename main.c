@@ -37,6 +37,7 @@ int	main(int argc, char **argv)
 	if ((argc == 2 && !ft_strcmp(argv[1], "Mandelbrot")) || (argc == 4 && !ft_strcmp(argv[1], "Julia")))
 	{
 		fractal_initializer(&frctl, argv[1]);
+		fractal_render(&frctl);
 		mlx_hook(frctl.f_window, 17, 0, cls_win, &frctl);
 		mlx_loop(frctl.f_connection);		
 	}
