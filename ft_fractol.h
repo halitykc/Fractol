@@ -8,12 +8,14 @@
 #include <stdio.h>
 #include <unistd.h>
 #include <math.h>
+#include <X11/X.h>
+#include <X11/keysym.h>
 
 #define HEIGHT 800
 #define WIDTH 800
 #define SCALE_MAX 2
 #define SCALE_MIN -2
-#define MAX_ITERATION 42
+#define MAX_ITERATION 2
 
 typedef struct s_coordinate
 {
@@ -38,6 +40,8 @@ typedef struct s_fractol
 	t_img	img;
 	int	f_iterations;
 	int	hypothenus;
+	double shift_lr;
+	double	shift_ud;
 }			t_fractol;
 
 
@@ -48,7 +52,7 @@ double	ft_scale(double unscaled, double newmin, double newmax,double oldmax);
 t_coordinate	sumcomplex(t_coordinate z1,t_coordinate z2);
 t_coordinate	sqr_number(t_coordinate z);
 
-
+void	fractal_events(t_fractol *fractol);
 
 
 #endif

@@ -1,6 +1,15 @@
 #include "ft_fractol.h"
 
 // cc main.c utils.c -Iminilibx-linux -Lminilibx-linux -lmlx -lXext -lX11 -lm -lz
+void	data_init(t_fractol *fractl)
+{
+	fractl->f_iterations = MAX_ITERATION;
+	fractl->hypothenus = 4;
+	fractl->shift_lr = 0;
+}
+
+
+
 void	fractal_initializer(t_fractol *fract, char *name)
 {
 	fract->f_connection = mlx_init();
@@ -20,15 +29,10 @@ void	fractal_initializer(t_fractol *fract, char *name)
 		return ;
     }
 	fract->img.pixel_ptr = mlx_get_data_addr(fract->img.img_ptr,&fract->img.bitperpixel,&fract->img.size_line, &fract->img.endian);
-}
+	fractal_events(fract);
+	printf("S = %f\n", fract->shift_lr);
+	data_init(fract);
 
-int	cls_win(t_fractol *fract)
-{
-	mlx_destroy_image(fract->f_connection,fract->img.img_ptr);
-	mlx_destroy_window(fract->f_connection, fract->f_window);
-	mlx_destroy_display(fract->f_connection);
-	free(fract->f_connection);
-	exit(0);
 }
 
 int	main(int argc, char **argv)
@@ -38,7 +42,6 @@ int	main(int argc, char **argv)
 	{
 		fractal_initializer(&frctl, argv[1]);
 		fractal_render(&frctl);
-		mlx_hook(frctl.f_window, 17, 0, cls_win, &frctl);
 		mlx_loop(frctl.f_connection);		
 	}
 	else

@@ -1,11 +1,5 @@
 #include "ft_fractol.h"
 
-void	data_init(t_fractol *fractl)
-{
-	fractl->f_iterations = MAX_ITERATION;
-	fractl->hypothenus = 4;
-}
-
 void	ft_put_pixel(int x, int y, t_img *frct, int color)
 {
 	int offset;
@@ -23,11 +17,10 @@ void	render_calculations(int x, int y, t_fractol *fractol)
 	int color;
 
 	i = -1;
-	data_init(fractol);
 	z.real = 0.0;
 	z.imaginary = 0.0;
-	c.real = ft_scale(x,SCALE_MIN,SCALE_MAX,WIDTH);
-	c.imaginary = ft_scale(y,SCALE_MAX,SCALE_MIN,HEIGHT);
+	c.real = ft_scale(x,SCALE_MIN,SCALE_MAX,WIDTH) + fractol->shift_lr;
+	c.imaginary = ft_scale(y,SCALE_MAX,SCALE_MIN,HEIGHT) + fractol->shift_ud;
 	while (++i < fractol->f_iterations)
 	{ 
 		z = sumcomplex(sqr_number(z), c);
