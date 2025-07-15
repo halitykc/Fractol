@@ -6,7 +6,7 @@
 /*   By: hyakici <hyakici@student.42istanbul.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/11 11:03:27 by hyakici           #+#    #+#             */
-/*   Updated: 2025/07/11 11:04:03 by hyakici          ###   ########.fr       */
+/*   Updated: 2025/07/15 14:00:58 by hyakici          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,8 +30,10 @@ void	render_calculations(int x, int y, t_fractol *fractol)
 	i = -1;
 	z.real = 0.0;
 	z.imaginary = 0.0;
-	c.real = ft_scale(x, SCALE_MIN, SCALE_MAX, WIDTH) + fractol->shift_lr;
-	c.imaginary = ft_scale(y, SCALE_MAX, SCALE_MIN, HEIGHT) + fractol->shift_ud;
+	c.real = ft_scale(x, SCALE_MIN, SCALE_MAX, WIDTH) * fractol->f_zoom
+		+ fractol->shift_lr;
+	c.imaginary = ft_scale(y, SCALE_MAX, SCALE_MIN, HEIGHT) * fractol->f_zoom
+		+ fractol->shift_ud;
 	while (++i < fractol->f_iterations)
 	{
 		z = sumcomplex(sqr_number(z), c);

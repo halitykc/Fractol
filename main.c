@@ -6,7 +6,7 @@
 /*   By: hyakici <hyakici@student.42istanbul.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/11 11:03:07 by hyakici           #+#    #+#             */
-/*   Updated: 2025/07/11 11:03:09 by hyakici          ###   ########.fr       */
+/*   Updated: 2025/07/11 13:36:30 by hyakici          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@ void	data_init(t_fractol *fractl)
 	fractl->f_iterations = MAX_ITERATION;
 	fractl->hypothenus = 4;
 	fractl->shift_lr = 0;
+	fractl->shift_ud = 0;
+	fractl->f_zoom = 1;
 }
 
 void	fractal_initializer(t_fractol *fract, char *name)
@@ -40,7 +42,6 @@ void	fractal_initializer(t_fractol *fract, char *name)
 	fract->img.pixel_ptr = mlx_get_data_addr(fract->img.img_ptr,
 			&fract->img.bitperpixel, &fract->img.size_line, &fract->img.endian);
 	fractal_events(fract);
-	printf("S = %f\n", fract->shift_lr);
 	data_init(fract);
 }
 
