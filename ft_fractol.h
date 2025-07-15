@@ -6,7 +6,7 @@
 /*   By: hyakici <hyakici@student.42istanbul.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/11 11:32:14 by hyakici           #+#    #+#             */
-/*   Updated: 2025/07/15 14:02:50 by hyakici          ###   ########.fr       */
+/*   Updated: 2025/07/15 15:21:59 by hyakici          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ typedef struct s_img
 
 typedef struct s_fractol
 {
-	char		*name;
+	char		name;
 	void		*f_connection;
 	void		*f_window;
 	t_img		img;
@@ -53,6 +53,8 @@ typedef struct s_fractol
 	double		shift_lr;
 	double		shift_ud;
 	double		f_zoom;
+	double		julia_r;
+	double		julia_img;
 }				t_fractol;
 
 int				ft_strcmp(const char *s1, const char *s2);
@@ -61,6 +63,7 @@ double			ft_scale(double unscaled, double newmin, double newmax,
 					double oldmax);
 t_coordinate	sumcomplex(t_coordinate z1, t_coordinate z2);
 t_coordinate	sqr_number(t_coordinate z);
+double			ft_atod(char *nbr);
 
 void			fractal_events(t_fractol *fractol);
 

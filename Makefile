@@ -4,15 +4,16 @@ CFLAGS = -Wall -Wextra -Werror
 NAME = fractol
 
 
-SFILES = main.c utils.c render.c events.c
+SFILES = main.c utils.c render.c events.c atod.c
 OFILES = $(SFILES:.c=.o)
 
 all:$(NAME)
 
 ${NAME}: ${OFILES}
+	make -C minilibx-linux 
 	${CC} ${CFLAGS} ${OFILES} -Iminilibx-linux -Lminilibx-linux -lmlx -lXext -lX11 -lm -lz -o ${NAME}
 
-clean: 
+clean:
 	rm -f ${OFILES}
 
 fclean: clean

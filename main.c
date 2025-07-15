@@ -6,11 +6,21 @@
 /*   By: hyakici <hyakici@student.42istanbul.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/11 11:03:07 by hyakici           #+#    #+#             */
-/*   Updated: 2025/07/11 13:36:30 by hyakici          ###   ########.fr       */
+/*   Updated: 2025/07/15 17:43:04 by hyakici          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_fractol.h"
+
+void	ft_tolower(char *c)
+{
+	while (*c)
+	{
+		if (*c >= 'A' && *c <= 'Z')
+			*c += ' ';
+		c++;
+	}
+}
 
 void	data_init(t_fractol *fractl)
 {
@@ -49,15 +59,22 @@ int	main(int argc, char **argv)
 {
 	t_fractol	frctl;
 
-	if ((argc == 2 && !ft_strcmp(argv[1], "Mandelbrot")) || (argc == 4
-			&& !ft_strcmp(argv[1], "Julia")))
+	ft_tolower(argv[1]);
+	if (((argc == 2 || argc == 4) && !ft_strcmp(argv[1], "julia")))
+	{
+		frctl.name = 'J';
+		frctl.julia_r = ft_atod(argv[2]);
+		frctl.julia_img = ft_atod(argv[3]);
+		fractal_initializer(&frctl, argv[1]);
+		fractal_render(&frctl);
+		mlx_loop(frctl.f_connection);
+	}
+	else if ((argc == 2 && !ft_strcmp(argv[1], "mandelbrot")))
 	{
 		fractal_initializer(&frctl, argv[1]);
 		fractal_render(&frctl);
 		mlx_loop(frctl.f_connection);
 	}
 	else
-	{
 		exit(1);
-	}
 }

@@ -6,7 +6,7 @@
 /*   By: hyakici <hyakici@student.42istanbul.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/11 11:04:28 by hyakici           #+#    #+#             */
-/*   Updated: 2025/07/15 13:56:31 by hyakici          ###   ########.fr       */
+/*   Updated: 2025/07/15 18:01:03 by hyakici          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,10 +33,10 @@ int	key_events(int keysym, t_fractol *fractol)
 		fractol->shift_ud -= 0.1 * fractol->f_zoom;
 	else if (keysym == XK_Down)
 		fractol->shift_ud += 0.1 * fractol->f_zoom;
-	else if (keysym == 52)
-	{
+	else if (keysym == XK_4)
 		fractol->f_iterations += 1;
-	}
+	else if (keysym == XK_5)
+		fractol->f_iterations -= 1;
 	fractal_render(fractol);
 	return (0);
 }
@@ -46,9 +46,9 @@ int	zoom(int button, int x, int y, t_fractol *fractol)
 	(void)x;
 	(void)y;
 	if (button == 5)
-		fractol->f_zoom *= 1.02;
+		fractol->f_zoom *= 1.03;
 	else if (button == 4)
-		fractol->f_zoom /= 1.02;
+		fractol->f_zoom /= 1.03;
 	fractal_render(fractol);
 	return (0);
 }
