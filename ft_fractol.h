@@ -6,7 +6,7 @@
 /*   By: hyakici <hyakici@student.42istanbul.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/11 11:32:14 by hyakici           #+#    #+#             */
-/*   Updated: 2025/07/15 15:21:59 by hyakici          ###   ########.fr       */
+/*   Updated: 2025/07/15 18:57:59 by hyakici          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,9 @@
 # define SCALE_MAX 2
 # define SCALE_MIN -2
 # define MAX_ITERATION 2
+# define ERR_L1 "Looks like you gave wrong parametre.\n"
+# define ERR_L2 "Here are valid params and syntax you can use\n"
+# define ERR_L3 "./fractol Mandelbrot\n./fractol Julia <real> <imaginary>\n"
 
 typedef struct s_coordinate
 {
@@ -66,5 +69,4 @@ t_coordinate	sqr_number(t_coordinate z);
 double			ft_atod(char *nbr);
 
 void			fractal_events(t_fractol *fractol);
-
 #endif

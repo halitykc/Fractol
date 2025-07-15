@@ -6,7 +6,7 @@
 /*   By: hyakici <hyakici@student.42istanbul.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/11 11:03:07 by hyakici           #+#    #+#             */
-/*   Updated: 2025/07/15 18:24:43 by hyakici          ###   ########.fr       */
+/*   Updated: 2025/07/15 18:59:25 by hyakici          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 static void	ft_tolower(char *c)
 {
-	while (*c)
+	while (c && *c)
 	{
 		if (*c >= 'A' && *c <= 'Z')
 			*c += ' ';
@@ -55,6 +55,13 @@ static void	fractal_initializer(t_fractol *fract, char *name)
 	data_init(fract);
 }
 
+static void	params_error(void)
+{
+	write(2, ERR_L1, 38);
+	write(2, ERR_L2, 46);
+	write(2, ERR_L3, 57);
+}
+
 int	main(int argc, char **argv)
 {
 	t_fractol	frctl;
@@ -76,5 +83,8 @@ int	main(int argc, char **argv)
 		mlx_loop(frctl.f_connection);
 	}
 	else
+	{
+		params_error();
 		exit(1);
+	}
 }
