@@ -6,13 +6,13 @@
 /*   By: hyakici <hyakici@student.42istanbul.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/11 11:04:28 by hyakici           #+#    #+#             */
-/*   Updated: 2025/07/15 18:01:03 by hyakici          ###   ########.fr       */
+/*   Updated: 2025/07/15 18:23:24 by hyakici          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_fractol.h"
 
-int	cls_win(t_fractol *fract)
+static int	cls_win(t_fractol *fract)
 {
 	mlx_destroy_image(fract->f_connection, fract->img.img_ptr);
 	mlx_destroy_window(fract->f_connection, fract->f_window);
@@ -21,7 +21,7 @@ int	cls_win(t_fractol *fract)
 	exit(0);
 }
 
-int	key_events(int keysym, t_fractol *fractol)
+static int	key_events(int keysym, t_fractol *fractol)
 {
 	if (keysym == XK_Escape)
 		cls_win(fractol);
@@ -41,7 +41,7 @@ int	key_events(int keysym, t_fractol *fractol)
 	return (0);
 }
 
-int	zoom(int button, int x, int y, t_fractol *fractol)
+static int	zoom(int button, int x, int y, t_fractol *fractol)
 {
 	(void)x;
 	(void)y;

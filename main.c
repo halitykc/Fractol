@@ -6,13 +6,13 @@
 /*   By: hyakici <hyakici@student.42istanbul.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/11 11:03:07 by hyakici           #+#    #+#             */
-/*   Updated: 2025/07/15 17:43:04 by hyakici          ###   ########.fr       */
+/*   Updated: 2025/07/15 18:24:43 by hyakici          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_fractol.h"
 
-void	ft_tolower(char *c)
+static void	ft_tolower(char *c)
 {
 	while (*c)
 	{
@@ -22,7 +22,7 @@ void	ft_tolower(char *c)
 	}
 }
 
-void	data_init(t_fractol *fractl)
+static void	data_init(t_fractol *fractl)
 {
 	fractl->f_iterations = MAX_ITERATION;
 	fractl->hypothenus = 4;
@@ -31,7 +31,7 @@ void	data_init(t_fractol *fractl)
 	fractl->f_zoom = 1;
 }
 
-void	fractal_initializer(t_fractol *fract, char *name)
+static void	fractal_initializer(t_fractol *fract, char *name)
 {
 	fract->f_connection = mlx_init();
 	fract->f_window = mlx_new_window(fract->f_connection, WIDTH, HEIGHT, name);

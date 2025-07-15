@@ -6,13 +6,13 @@
 /*   By: hyakici <hyakici@student.42istanbul.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/11 11:03:27 by hyakici           #+#    #+#             */
-/*   Updated: 2025/07/15 15:11:39 by hyakici          ###   ########.fr       */
+/*   Updated: 2025/07/15 18:22:19 by hyakici          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_fractol.h"
 
-void	ft_put_pixel(int x, int y, t_img *frct, int color)
+static void	ft_put_pixel(int x, int y, t_img *frct, int color)
 {
 	int	offset;
 
@@ -20,7 +20,7 @@ void	ft_put_pixel(int x, int y, t_img *frct, int color)
 	*(unsigned int *)(offset + frct->pixel_ptr) = color;
 }
 
-void	render_calculations_julia(int x, int y, t_fractol *fractol)
+static void	render_calculations_julia(int x, int y, t_fractol *fractol)
 {
 	t_coordinate	z;
 	t_coordinate	c;
@@ -48,7 +48,7 @@ void	render_calculations_julia(int x, int y, t_fractol *fractol)
 	ft_put_pixel(x, y, &fractol->img, 0x000001);
 }
 
-void	render_calculations_mandel(int x, int y, t_fractol *fractol)
+static void	render_calculations_mandel(int x, int y, t_fractol *fractol)
 {
 	t_coordinate	z;
 	t_coordinate	c;

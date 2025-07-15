@@ -6,11 +6,11 @@
 /*   By: hyakici <hyakici@student.42istanbul.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/15 15:17:44 by hyakici           #+#    #+#             */
-/*   Updated: 2025/07/15 15:21:23 by hyakici          ###   ########.fr       */
+/*   Updated: 2025/07/15 18:24:16 by hyakici          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_isspace(int c)
+static int	ft_isspace(int c)
 {
 	if (c == ' ' || c == '\t' || c == '\r')
 		return (1);
@@ -40,7 +40,7 @@ static int	is_negativ(char *nbr)
 	return (0);
 }
 
-int	ft_atoi(const char *nptr)
+static int	ft_atoi(const char *nptr)
 {
 	int	i;
 	int	res;
