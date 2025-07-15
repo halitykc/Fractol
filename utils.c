@@ -6,7 +6,7 @@
 /*   By: hyakici <hyakici@student.42istanbul.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/11 11:03:49 by hyakici           #+#    #+#             */
-/*   Updated: 2025/07/15 15:26:43 by hyakici          ###   ########.fr       */
+/*   Updated: 2025/07/15 19:40:02 by hyakici          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,4 +43,31 @@ t_coordinate	sqr_number(t_coordinate z)
 	result.real = (z.real * z.real) - (z.imaginary * z.imaginary);
 	result.imaginary = 2 * z.imaginary * z.real;
 	return (result);
+}
+
+int	is_double(char *arg1, char *arg2)
+{
+	int	i;
+
+	i = 0;
+	if (!arg1 || !arg2)
+		return (1);
+	while (arg1[i])
+	{
+		if ((arg1[i] >= '0' && arg1[i] <= '9') || arg1[i] == '.'
+			|| (arg1[i] == '-' || arg1[i] == '+'))
+			i++;
+		else
+			return (0);
+	}
+	i = 0;
+	while (arg2[i])
+	{
+		if ((arg2[i] >= '0' && arg2[i] <= '9') || arg2[i] == '.'
+			|| (arg1[i] == '-' || arg1[i] == '+'))
+			i++;
+		else
+			return (0);
+	}
+	return (1);
 }
