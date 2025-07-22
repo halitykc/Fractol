@@ -6,13 +6,11 @@
 /*   By: hyakici <hyakici@student.42istanbul.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/22 12:56:40 by hyakici           #+#    #+#             */
-/*   Updated: 2025/07/22 15:49:14 by hyakici          ###   ########.fr       */
+/*   Updated: 2025/07/22 17:00:18 by hyakici          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_fractol.h"
-#include <ctype.h>
-#include <stdio.h>
 
 void	ft_trim_inplace(char **str)
 {

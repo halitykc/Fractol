@@ -6,7 +6,7 @@
 /*   By: hyakici <hyakici@student.42istanbul.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/15 15:17:44 by hyakici           #+#    #+#             */
-/*   Updated: 2025/07/22 16:31:18 by hyakici          ###   ########.fr       */
+/*   Updated: 2025/07/22 16:53:03 by hyakici          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ static int	ft_strlen(const char *str)
 	int	i;
 
 	i = 0;
-	while (str[i] && (i <= 2147483647 && i >= -2147483648))
+	while (str[i] && i <= 2147483647)
 	{
 		i++;
 	}
