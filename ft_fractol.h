@@ -6,7 +6,7 @@
 /*   By: hyakici <hyakici@student.42istanbul.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/11 11:32:14 by hyakici           #+#    #+#             */
-/*   Updated: 2025/07/15 19:32:15 by hyakici          ###   ########.fr       */
+/*   Updated: 2025/07/22 13:15:40 by hyakici          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,9 @@
 # define WIDTH 800
 # define SCALE_MAX 2
 # define SCALE_MIN -2
-# define MAX_ITERATION 2
+# define MAX_ITERATION 51
+# define MANDEL 3
+# define JULIA 1
 # define ERR_L1 "Looks like you gave wrong parametre.\n"
 # define ERR_L2 "Here are valid params and syntax you can use\n"
 # define ERR_L3 "./fractol Mandelbrot\n./fractol Julia <real> <imaginary>\n"
@@ -61,13 +63,15 @@ typedef struct s_fractol
 }				t_fractol;
 
 int				ft_strcmp(const char *s1, const char *s2);
+int				ft_control(int ac, char **av);
+void			params_error(void);
 void			fractal_render(t_fractol *frctl);
 double			ft_scale(double unscaled, double newmin, double newmax,
 					double oldmax);
 t_coordinate	sumcomplex(t_coordinate z1, t_coordinate z2);
 t_coordinate	sqr_number(t_coordinate z);
 double			ft_atod(char *nbr);
-int				is_double(char *arg1, char *arg2);
+int				is_double(char *s);
 
 void			fractal_events(t_fractol *fractol);
 #endif

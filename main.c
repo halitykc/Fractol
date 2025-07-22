@@ -6,7 +6,7 @@
 /*   By: hyakici <hyakici@student.42istanbul.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/11 11:03:07 by hyakici           #+#    #+#             */
-/*   Updated: 2025/07/15 19:33:03 by hyakici          ###   ########.fr       */
+/*   Updated: 2025/07/22 13:21:09 by hyakici          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,7 @@ static void	data_init(t_fractol *fractl)
 	fractl->shift_lr = 0;
 	fractl->shift_ud = 0;
 	fractl->f_zoom = 1;
+	fractl->name = 0;
 }
 
 static void	fractal_initializer(t_fractol *fract, char *name)
@@ -55,29 +56,21 @@ static void	fractal_initializer(t_fractol *fract, char *name)
 	data_init(fract);
 }
 
-static void	params_error(void)
-{
-	write(2, ERR_L1, 38);
-	write(2, ERR_L2, 46);
-	write(2, ERR_L3, 57);
-}
-
 int	main(int argc, char **argv)
 {
 	t_fractol	frctl;
 
 	ft_tolower(argv[1]);
-	if ((argc == 2 || argc == 4) && !ft_strcmp(argv[1], "julia")
-		&& is_double(argv[2], argv[3]))
+	if (ft_control(argc, argv) == JULIA)
 	{
-		frctl.name = 'J';
 		frctl.julia_r = ft_atod(argv[2]);
 		frctl.julia_img = ft_atod(argv[3]);
 		fractal_initializer(&frctl, argv[1]);
+		frctl.name = 'J';
 		fractal_render(&frctl);
 		mlx_loop(frctl.f_connection);
 	}
-	else if ((argc == 2 && !ft_strcmp(argv[1], "mandelbrot")))
+	else if (ft_control(argc, argv) == MANDEL)
 	{
 		fractal_initializer(&frctl, argv[1]);
 		fractal_render(&frctl);

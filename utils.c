@@ -6,7 +6,7 @@
 /*   By: hyakici <hyakici@student.42istanbul.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/11 11:03:49 by hyakici           #+#    #+#             */
-/*   Updated: 2025/07/15 19:40:02 by hyakici          ###   ########.fr       */
+/*   Updated: 2025/07/22 12:54:30 by hyakici          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,29 +45,29 @@ t_coordinate	sqr_number(t_coordinate z)
 	return (result);
 }
 
-int	is_double(char *arg1, char *arg2)
+int	is_double(char *s)
 {
 	int	i;
+	int	dot;
 
 	i = 0;
-	if (!arg1 || !arg2)
+	dot = 0;
+	if (!s || !s[i])
 		return (1);
-	while (arg1[i])
+	if (s[i] == '-' || s[i] == '+')
+		i++;
+	if (!s[i])
+		return (0);
+	while (s[i])
 	{
-		if ((arg1[i] >= '0' && arg1[i] <= '9') || arg1[i] == '.'
-			|| (arg1[i] == '-' || arg1[i] == '+'))
-			i++;
-		else
+		if (s[i] == '.')
+		{
+			if (++dot > 1)
+				return (0);
+		}
+		else if (s[i] < '0' || s[i] > '9')
 			return (0);
+		i++;
 	}
-	i = 0;
-	while (arg2[i])
-	{
-		if ((arg2[i] >= '0' && arg2[i] <= '9') || arg2[i] == '.'
-			|| (arg1[i] == '-' || arg1[i] == '+'))
-			i++;
-		else
-			return (0);
-	}
-	return (1);
+	return (!(i == 1 && dot == 1));
 }
