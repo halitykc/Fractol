@@ -6,7 +6,7 @@
 /*   By: hyakici <hyakici@student.42istanbul.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/11 11:32:14 by hyakici           #+#    #+#             */
-/*   Updated: 2025/07/22 13:15:40 by hyakici          ###   ########.fr       */
+/*   Updated: 2025/07/22 14:09:06 by hyakici          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,6 +72,9 @@ t_coordinate	sumcomplex(t_coordinate z1, t_coordinate z2);
 t_coordinate	sqr_number(t_coordinate z);
 double			ft_atod(char *nbr);
 int				is_double(char *s);
+size_t			ft_strlen(const char *str);
+char			*ft_strdup(const char *s);
+char			*ft_strtrim(char const *s1, char const *set);
 
 void			fractal_events(t_fractol *fractol);
 #endif
