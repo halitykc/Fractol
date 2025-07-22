@@ -4,7 +4,7 @@ CFLAGS = -Wall -Wextra -Werror
 NAME = fractol
 
 
-SFILES = main.c utils.c render.c events.c atod.c error_and_control.c trim.c strdup.c
+SFILES = main.c utils.c render.c events.c atod.c error_and_control.c
 OFILES = $(SFILES:.c=.o)
 
 all:$(NAME)

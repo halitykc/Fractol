@@ -6,7 +6,7 @@
 /*   By: hyakici <hyakici@student.42istanbul.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/11 11:03:07 by hyakici           #+#    #+#             */
-/*   Updated: 2025/07/22 14:27:17 by hyakici          ###   ########.fr       */
+/*   Updated: 2025/07/22 15:49:37 by hyakici          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,14 +56,6 @@ static void	fractal_initializer(t_fractol *fract, char *name)
 	data_init(fract);
 }
 
-static void	free_me(char **av)
-{
-	if (!av[3] || !av[2])
-		return ;
-	free(av[2]);
-	free(av[3]);
-}
-
 int	main(int argc, char **argv)
 {
 	t_fractol	frctl;
@@ -73,7 +65,6 @@ int	main(int argc, char **argv)
 	{
 		frctl.julia_r = ft_atod(argv[2]);
 		frctl.julia_img = ft_atod(argv[3]);
-		free_me(argv);
 		fractal_initializer(&frctl, argv[1]);
 		frctl.name = 'J';
 		fractal_render(&frctl);

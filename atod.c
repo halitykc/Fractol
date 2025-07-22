@@ -6,11 +6,11 @@
 /*   By: hyakici <hyakici@student.42istanbul.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/15 15:17:44 by hyakici           #+#    #+#             */
-/*   Updated: 2025/07/22 13:45:52 by hyakici          ###   ########.fr       */
+/*   Updated: 2025/07/22 16:31:18 by hyakici          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-static int	ft_isspace(int c)
+int	ft_isspace(int c)
 {
 	if (c == ' ' || c == '\t' || c == '\r')
 		return (1);
@@ -24,7 +24,7 @@ static int	ft_strlen(const char *str)
 	int	i;
 
 	i = 0;
-	while (str[i])
+	while (str[i] && (i <= 2147483647 && i >= -2147483648))
 	{
 		i++;
 	}
@@ -66,7 +66,7 @@ double	ft_atod(char *nbr)
 {
 	double	res;
 	int		i;
-	int		j;
+	double	j;
 	int		sign;
 
 	j = 1;
