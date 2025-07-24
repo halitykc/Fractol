@@ -6,7 +6,7 @@
 /*   By: hyakici <hyakici@student.42istanbul.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/11 11:32:14 by hyakici           #+#    #+#             */
-/*   Updated: 2025/07/22 17:12:30 by hyakici          ###   ########.fr       */
+/*   Updated: 2025/07/24 14:41:54 by hyakici          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,9 +24,11 @@
 # define WIDTH 800
 # define SCALE_MAX 2
 # define SCALE_MIN -2
-# define MAX_ITERATION 51
+# define MAX_ITERATION 30
 # define MANDEL 3
 # define JULIA 1
+# define BLACK 0x000000
+# define WHITE 0xffffff
 # define ERR_L1 "Looks like you gave wrong parametre.\n"
 # define ERR_L2 "Here are valid params and syntax you can use\n"
 # define ERR_L3 "./fractol Mandelbrot\n./fractol Julia <real> <imaginary>\n"

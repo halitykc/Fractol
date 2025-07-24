@@ -6,7 +6,7 @@
 /*   By: hyakici <hyakici@student.42istanbul.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/11 11:03:07 by hyakici           #+#    #+#             */
-/*   Updated: 2025/07/22 15:49:37 by hyakici          ###   ########.fr       */
+/*   Updated: 2025/07/24 14:25:25 by hyakici          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,8 @@ static void	data_init(t_fractol *fractl)
 static void	fractal_initializer(t_fractol *fract, char *name)
 {
 	fract->f_connection = mlx_init();
+	if (!fract->f_connection)
+		return ;
 	fract->f_window = mlx_new_window(fract->f_connection, WIDTH, HEIGHT, name);
 	if (!fract->f_window)
 	{

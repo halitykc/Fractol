@@ -6,13 +6,13 @@
 /*   By: hyakici <hyakici@student.42istanbul.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/22 12:56:40 by hyakici           #+#    #+#             */
-/*   Updated: 2025/07/22 17:00:18 by hyakici          ###   ########.fr       */
+/*   Updated: 2025/07/24 14:19:00 by hyakici          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_fractol.h"
 
-void	ft_trim_inplace(char **str)
+static void	ft_trim_inplace(char **str)
 {
 	char	*start;
 	char	*end;
@@ -20,13 +20,13 @@ void	ft_trim_inplace(char **str)
 	if (!str || !*str)
 		return ;
 	start = *str;
-	while (ft_isspace((unsigned char)*start))
+	while (ft_isspace(*start))
 		start++;
 	end = start;
 	while (*end)
 		end++;
 	end--;
-	while (end > start && ft_isspace((unsigned char)*end))
+	while (end > start && ft_isspace(*end))
 		end--;
 	*(end + 1) = '\0';
 	*str = start;
@@ -36,6 +36,7 @@ int	ft_control(int ac, char **av)
 {
 	if (ac >= 2 && ac <= 4)
 	{
+		ft_trim_inplace(&av[1]);
 		if (ac == 2 && !ft_strcmp(av[1], "mandelbrot"))
 			return (MANDEL);
 		if (ac > 2 && !ft_strcmp(av[1], "mandelbrot"))

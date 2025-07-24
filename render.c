@@ -6,7 +6,7 @@
 /*   By: hyakici <hyakici@student.42istanbul.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/11 11:03:27 by hyakici           #+#    #+#             */
-/*   Updated: 2025/07/15 18:22:19 by hyakici          ###   ########.fr       */
+/*   Updated: 2025/07/24 15:11:29 by hyakici          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,12 +40,12 @@ static void	render_calculations_julia(int x, int y, t_fractol *fractol)
 		if ((z.real * z.real) + (z.imaginary
 				* z.imaginary) > fractol->hypothenus)
 		{
-			color = ft_scale(i, 0x000000, 0xffffff, fractol->f_iterations);
+			color = ft_scale(i, BLACK, WHITE, fractol->f_iterations);
 			ft_put_pixel(x, y, &fractol->img, color);
 			return ;
 		}
 	}
-	ft_put_pixel(x, y, &fractol->img, 0x000001);
+	ft_put_pixel(x, y, &fractol->img, BLACK);
 }
 
 static void	render_calculations_mandel(int x, int y, t_fractol *fractol)
@@ -68,12 +68,12 @@ static void	render_calculations_mandel(int x, int y, t_fractol *fractol)
 		if ((z.real * z.real) + (z.imaginary
 				* z.imaginary) > fractol->hypothenus)
 		{
-			color = ft_scale(i, 0x000000, 0xffffff, fractol->f_iterations);
+			color = ft_scale(i, BLACK, WHITE, fractol->f_iterations);
 			ft_put_pixel(x, y, &fractol->img, color);
 			return ;
 		}
 	}
-	ft_put_pixel(x, y, &fractol->img, 0x000001);
+	ft_put_pixel(x, y, &fractol->img, BLACK);
 }
 
 void	fractal_render(t_fractol *frctl)

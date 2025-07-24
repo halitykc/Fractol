@@ -6,7 +6,7 @@
 /*   By: hyakici <hyakici@student.42istanbul.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/11 11:04:28 by hyakici           #+#    #+#             */
-/*   Updated: 2025/07/15 18:23:24 by hyakici          ###   ########.fr       */
+/*   Updated: 2025/07/24 14:33:11 by hyakici          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,7 @@ static int	zoom(int button, int x, int y, t_fractol *fractol)
 void	fractal_events(t_fractol *fractol)
 {
 	mlx_hook(fractol->f_window, KeyPress, KeyPressMask, key_events, fractol);
-	mlx_hook(fractol->f_window, ButtonPress, ButtonPress, zoom, fractol);
+	mlx_hook(fractol->f_window, ButtonPress, ButtonPressMask, zoom, fractol);
 	mlx_hook(fractol->f_window, DestroyNotify, StructureNotifyMask, cls_win,
 		fractol);
 }
